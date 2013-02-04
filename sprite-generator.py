@@ -1,4 +1,4 @@
-#!/usr/bin/env
+#!/usr/bin/env python
 """
 GLYPHICONS Sprite Generator for Bootstrap
 
