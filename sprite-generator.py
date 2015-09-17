@@ -71,12 +71,13 @@ COLUMNS = 50
 CELL_SIZE = ICON_SIZE[0] + 10, ICON_SIZE[1] + 10
 CELL_OFFSET = 5
 
-ICON_NAME = re.compile(r'glyphicons/png/glyphicons_\d{3}_([\w_@\+\-]+)\.png')
+BASE_PATH = os.path.join(os.pathsep, ['glyphicons', 'png', 'glyphicons'])
+ICON_NAME = re.compile(BASE_PATH + '_\d{3}_([\w_@\+\-]+)\.png')
 
-SPRITE_CSS = 'sprites/glyphicons.css'
-SPRITE_FILE = 'sprites/glyphicons.png'
-SPRITE_WHITE_FILE = 'sprites/glyphicons-white.png'
-SPRITE_HTML = 'sprites/glyphicons.html'
+SPRITE_CSS = os.path.join(os.pathsep, ['sprites', 'glyphicons.css'])
+SPRITE_FILE = os.path.join(os.pathsep, ['sprites', 'glyphicons.png'])
+SPRITE_WHITE_FILE = os.path.join(os.pathsep, ['sprites', 'glyphicons-white.png'])
+SPRITE_HTML = os.path.join(os.pathsep, ['sprites', 'glyphicons.html'])
 
 CSS_TEMPLATE = """[class^="icon-"],
 [class*=" icon-"] {
@@ -188,12 +189,12 @@ def main():
     global PRO
 
     # Try and guess if this is pro or free
-    directory = os.path.realpath(__file__).split('/')[-2]
+    directory = os.path.realpath(__file__).split(os.pathsep)[-2]
     if directory[-3:] == 'pro' and not PRO:
         print "GLYPHICONS PRO detected, using 2x icons for coloring and sizing"
         PRO = True
 
-    files = glob.glob("glyphicons/png/*.png")
+    files = glob.glob(os.path.join(os.pathsep, ["glyphicons", "png", "*.png"]))
     if not files:
         print "ERROR: Did not find any PNG files, are you sure youre in glyphicons_free/glyphicons directory?"
         sys.exit(-1)
