@@ -1,5 +1,7 @@
 GLYPHICONS Sprite Generator for Bootstrap
 =========================================
+:boom:**Important**:boom: This project is deprecated and no longer maintained. If you'd like to take it over, please contact me.
+
 The GLYPHICONS Sprite Generator allows you to change the size and colors of the
 Bootstap icons using the Free or Pro versions of GLYPHICONS. When using the Pro
 files, all the extra icons will be available to your Bootstrap project.
